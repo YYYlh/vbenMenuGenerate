@@ -1,0 +1,29 @@
+{
+  "name": "vbenmenugenerate",
+  "version": "1.0.0",
+  "description": "vben框架菜单生成工具",
+  "bin": {
+    "vben": "index.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "vben"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YYYlh/vbenMenuGenerate.git"
+  },
+  "keywords": [
+    "node",
+    "vben"
+  ],
+  "author": "liuhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YYYlh/vbenMenuGenerate/issues"
+  },
+  "homepage": "https://github.com/YYYlh/vbenMenuGenerate#readme",
+  "dependencies": {
+    "commander": "^8.2.0"
+  }
+}
