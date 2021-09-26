@@ -16,10 +16,10 @@ enum Api {
 // 列表
 export const ${name}PageListApi = (params) => {
     return defHttp.post<BasicFetchPageResult<${upperCaseName}Item>>({
-            url: Api.List,
-            data: params,
-        });
-    };
+        url: Api.List,
+        data: params,
+    });
+};
 
 // 新增
 export const add${upperCaseName}Api = (params) => {
