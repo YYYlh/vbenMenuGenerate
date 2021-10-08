@@ -51,9 +51,9 @@ export const ${name}DetailByIdApi = (id: string) => {
     return defHttp.post<BasicFetchResult<${upperCaseName}Item>>({
         url: Api.Detail,
         params: { id },
-            headers: { 'Content-Type': ContentTypeEnum.FORM_URLENCODED },
-        });
-    };`;
+        headers: { 'Content-Type': ContentTypeEnum.FORM_URLENCODED },
+    });
+};`;
 };
 
 exports.getModelTemplate = function (name) {

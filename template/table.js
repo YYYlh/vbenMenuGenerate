@@ -167,7 +167,7 @@ exports.getTableDrawerTemplate = function (name, upperCaseName, path) {
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import { ${upperCaseName}PageListApi, delete${upperCaseName}ByIdApi } from '/@/api/${path}/${name}';
+  import { ${name}PageListApi, delete${upperCaseName}ByIdApi } from '/@/api/${path}/${name}';
   import { searchFormSchema, columns } from './${name}.data';
   import {
     BasicTable,
@@ -232,9 +232,9 @@ exports.getTableDrawerTemplate = function (name, upperCaseName, path) {
       ${upperCaseName}Drawer,
     },
     setup() {
-      const [registerTable, {}] = useTable({
+      const [registerTable, { reload }] = useTable({
         title: '',
-        api: ${upperCaseName}PageListApi,
+        api: ${name}PageListApi,
         useSearchForm: true,
         columns,
         formConfig: {
@@ -255,7 +255,7 @@ exports.getTableDrawerTemplate = function (name, upperCaseName, path) {
         tableAction,
         registerDrawer,
         reload,
-        ...tableAction(openDrawer),
+        ...tableAction(openDrawer, reload),
       };
     },
   });
