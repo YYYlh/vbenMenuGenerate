@@ -2,7 +2,7 @@ exports.getApiTemplate = function (name, upperCaseName) {
   return `
 import { defHttp } from '/@/utils/http/axios';
 import { ContentTypeEnum } from '/@/enums/httpEnum';
-import { BasicFetchPageResult, BasicFetchResult } from '../model/baseModel';
+import { BasicFetchPageResult, BasicFetchResult } from '/@/api/model/baseModel';
 import { ${upperCaseName}Item } from './model/${name}Model';
 
 enum Api {
