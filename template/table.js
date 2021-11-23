@@ -4,18 +4,15 @@ exports.getTableTemplate = function (name, upperCaseName, path) {
     <BasicTable @register="registerTable" />
 </template>
 <script lang="ts">
-    import { defineComponent, toRaw } from 'vue';
-    import { BasicTable, useTable } from '/@/components/Table';
-    import { ${name}PageListApi } from '/@/api/${path}/${name}';
-    import ${upperCaseName}Modal from './modal.vue';
-    import { columns, searchFormSchema } from './${name}.data';
+import { defineComponent, toRaw } from 'vue';
+import { BasicTable, useTable } from '/@/components/Table';
+import { ${name}PageListApi } from '/@/api/${path}/${name}';
+import { columns, searchFormSchema } from './${name}.data';
 
-    export default defineComponent({
+export default defineComponent({
     name: '',
     components: {
         BasicTable,
-        TableAction,
-        ${upperCaseName}Modal,
     },
     setup() {
         const [registerTable, { reload }] = useTable({
@@ -32,7 +29,7 @@ exports.getTableTemplate = function (name, upperCaseName, path) {
             registerTable,
         };
     },
-    });
+});
 </script>`;
 };
 
