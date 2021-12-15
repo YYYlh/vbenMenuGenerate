@@ -56,3 +56,5 @@ program
             })
        });
 program.parse(process.argv);
+
+let ABW096 = 'magnet:?xt=urn:btih:74B8700883584EFC92C79090CB31E00ED2887250'
