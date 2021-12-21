@@ -26,13 +26,15 @@ const [registerModal, { closeModal, changeOkLoading }] = useModalInner((data) =>
     getTitle.value = '新增';
   } else {
     getTitle.value = '修改';
+    let fieldsValue = {}
     for (const item of formSchema) {
-      setFieldsValue({ [item.field]: data[item.field] });
+      fieldsValue[item.field] = data[item.field];
     }
+    setFieldsValue(fieldsValue);
   }
 });
 
-const [registerForm, { submit, validate, setFieldsValue, resetFields }] = useForm({
+const [registerForm, { validate, setFieldsValue, resetFields }] = useForm({
   labelCol: {
     span: 8,
   },
@@ -40,25 +42,17 @@ const [registerForm, { submit, validate, setFieldsValue, resetFields }] = useFor
     span: 10,
   },
   schemas: formSchema,
-  submitFunc: handleSubmit,
   showActionButtonGroup: false,
 });
 
 async function handleSubmit() {
   const value = await validate();
   changeOkLoading(true);
-  try {
-    await (value.id ? update${upperCaseName}Api(value) : add${upperCaseName}Api(value));
-  } catch (e) {
-  } finally {
-    changeOkLoading(false);
-    await resetFields();
-    emit('reload');
-    closeModal();
-  }
-}
-async function handleOk() {
-  await submit();
+  await (value.id ? update${upperCaseName}Api(value) : add${upperCaseName}Api(value));
+  changeOkLoading(false);
+  await resetFields();
+  emit('reload');
+  closeModal();
 }
 </script>`;
 };

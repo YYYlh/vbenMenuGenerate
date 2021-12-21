@@ -43,9 +43,11 @@ const [registerDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (
     if (unref(isUpdate)) {
         skeletonLoading.value = true;
         const res = await ${name}DetailByIdApi(data.id)
-        setFieldsValue({
-            ...res.data,
-        });
+        let fieldsValue = {}
+        for (const item of formSchema) {
+            fieldsValue[item.field] = res.data[item.field];
+        }
+        setFieldsValue(fieldsValue);
         skeletonLoading.value = false;
     }
 });
