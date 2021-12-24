@@ -179,7 +179,7 @@ const [registerTable, { reload }] = useTable({
 const [registerDrawer, { openDrawer }] = useDrawer();
 
 function handleEdit(id) {
-    openModal(true, {
+    openDrawer(true, {
         isUpdate: true,
         id,
     });
@@ -192,7 +192,7 @@ function handleDelete(record) {
         }
     });
 }
-const createActions = (record: BasicColumn, _: EditRecordRow): ActionItem[] => [
+const createActions = (record: EditRecordRow<${upperCaseName}Item>, _: BasicColumn): ActionItem[] => [
     {
         label: '编辑',
         icon: 'clarity:note-edit-line',
@@ -212,7 +212,7 @@ const createActions = (record: BasicColumn, _: EditRecordRow): ActionItem[] => [
 ];
 
 function handleAdd() {
-    openModal(true, {
+    openDrawer(true, {
         isUpdate: false,
     });
 }
