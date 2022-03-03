@@ -3,7 +3,7 @@ exports.getApiTemplate = function (name, upperCaseName) {
 import { defHttp } from '/@/utils/http/axios';
 import { ContentTypeEnum } from '/@/enums/httpEnum';
 import { BasicFetchPageResult, BasicFetchResult } from '/@/api/model/baseModel';
-import { ${upperCaseName}Item } from './model/${name}Model';
+import { ${upperCaseName}Info } from './model/${name}Model';
 
 enum Api {
     List = '',
@@ -15,7 +15,7 @@ enum Api {
 
 // 列表
 export const ${name}PageListApi = (params) => {
-    return defHttp.post<BasicFetchPageResult<${upperCaseName}Item>>({
+    return defHttp.post<BasicFetchPageResult<${upperCaseName}Info>>({
         url: Api.List,
         data: params,
     });
@@ -48,7 +48,7 @@ export const delete${upperCaseName}ByIdApi = (id: string) => {
 
 // 详情
 export const ${name}DetailByIdApi = (id: string) => {
-    return defHttp.post<BasicFetchResult<${upperCaseName}Item>>({
+    return defHttp.post<BasicFetchResult<${upperCaseName}Info>>({
         url: Api.Detail,
         params: { id },
         headers: { 'Content-Type': ContentTypeEnum.FORM_URLENCODED },
@@ -59,7 +59,7 @@ export const ${name}DetailByIdApi = (id: string) => {
 exports.getModelTemplate = function (name) {
   const upperCaseName = name.replace(name[0], name[0].toUpperCase());
   return `
-export interface ${upperCaseName}Item {
+export interface ${upperCaseName}Info {
  
 }`;
 };

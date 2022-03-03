@@ -13,11 +13,7 @@ exports.getDrawerTemplate = function (name, upperCaseName, path) {
         <BasicForm v-show="!skeletonLoading" @register="registerForm" />
     </BasicDrawer>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-    name: '',
-});
+<script lang="ts" name="">
 </script>
 <script lang="ts" setup>
 import { defineEmits, ref, computed, unref } from 'vue';

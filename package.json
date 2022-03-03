@@ -1,6 +1,6 @@
 {
   "name": "vbenmenugenerate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vben框架菜单生成工具",
   "bin": {
     "vben": "index.js"

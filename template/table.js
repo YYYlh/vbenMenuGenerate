@@ -3,17 +3,12 @@ exports.getTableTemplate = function (name, upperCaseName, path) {
 <template>
     <BasicTable @register="registerTable" />
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-    name: '',
-});
-</script>
-<script lang="ts" setup>
+<script lang="ts" setup name="">
 import { toRaw } from 'vue';
 import { BasicTable, useTable } from '/@/components/Table';
 import { ${name}PageListApi } from '/@/api/${path}/${name}';
 import { columns, searchFormSchema } from './${name}.data';
+
 const [registerTable, { reload }] = useTable({
     title: '',
     api: ${name}PageListApi,
@@ -42,13 +37,7 @@ exports.getTableModalTemplate = function (name, upperCaseName, path) {
     <${upperCaseName}Modal @register="registerModal" @reload="reload" />
 </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-    name: '',
-});
-</script>
-<script lang="ts" setup>
+<script lang="ts" setup name="">
 import { toRaw } from 'vue';
 import {
     BasicTable,
@@ -103,7 +92,7 @@ function handleDelete(record) {
         }
     });
 }
-const createActions = (record: BasicColumn, _: EditRecordRow): ActionItem[] => [
+const createActions = (record: EditRecordRow, _: BasicColumn): ActionItem[] => [
     {
         label: '编辑',
         icon: 'clarity:note-edit-line',
@@ -139,13 +128,7 @@ exports.getTableDrawerTemplate = function (name, upperCaseName, path) {
     <${upperCaseName}Drawer @register="registerDrawer" @success="reload"/>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-    name: '',
-});
-</script>
-<script lang="ts" setup>
+<script lang="ts" setup name="">
 import { ${name}PageListApi, delete${upperCaseName}ByIdApi } from '/@/api/${path}/${name}';
 import { searchFormSchema, columns } from './${name}.data';
 import {
@@ -192,7 +175,7 @@ function handleDelete(record) {
         }
     });
 }
-const createActions = (record: EditRecordRow<${upperCaseName}Item>, _: BasicColumn): ActionItem[] => [
+const createActions = (record: EditRecordRow, _: BasicColumn): ActionItem[] => [
     {
         label: '编辑',
         icon: 'clarity:note-edit-line',

@@ -5,15 +5,7 @@ exports.getModalTemplate = function (name, upperCaseName, path) {
         <BasicForm @register="registerForm" />
     </BasicModal>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-    name: '',
-});
-</script>
-<script lang="ts" setup>
-
-import { ref, defineEmits } from 'vue';
+<script lang="ts" setup name="">
 import { BasicModal, useModalInner } from '/@/components/Modal';
 import { BasicForm, useForm } from '/@/components/Form';
 import { formSchema } from './${name}.data';
