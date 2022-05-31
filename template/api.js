@@ -5,42 +5,34 @@ import { ContentTypeEnum } from '/@/enums/httpEnum';
 import { BasicFetchPageResult, BasicFetchResult } from '/@/api/model/baseModel';
 import { ${upperCaseName}Info } from './model/${name}Model';
 
-enum Api {
-    List = '',
-    Add = '',
-    Update = '',
-    Delete = '',
-    Detail = '',
-}
-
 // 列表
 export const ${name}PageListApi = (params) => {
     return defHttp.post<BasicFetchPageResult<${upperCaseName}Info>>({
-        url: Api.List,
+        url: '',
         data: params,
     });
 };
 
 // 新增
 export const add${upperCaseName}Api = (params) => {
-    return defHttp.post({
-        url: Api.Add,
+    return defHttp.post<BasicFetchResult<boolean>>({
+        url: '',
         data: params,
     });
 };
 
 // 编辑
 export const update${upperCaseName}Api = (params) => {
-    return defHttp.post({
-        url: Api.Update,
+    return defHttp.post<BasicFetchResult<boolean>>({
+        url: '',
         data: params,
     });
 };
 
 // 删除
 export const delete${upperCaseName}ByIdApi = (id: string) => {
-    return defHttp.post<BasicFetchResult<Boolean>>({
-        url: Api.Delete,
+    return defHttp.post<BasicFetchResult<boolean>>({
+        url: '',
         params: { id },
         headers: { 'Content-Type': ContentTypeEnum.FORM_URLENCODED },
     });
@@ -49,7 +41,7 @@ export const delete${upperCaseName}ByIdApi = (id: string) => {
 // 详情
 export const ${name}DetailByIdApi = (id: string) => {
     return defHttp.post<BasicFetchResult<${upperCaseName}Info>>({
-        url: Api.Detail,
+        url: '',
         params: { id },
         headers: { 'Content-Type': ContentTypeEnum.FORM_URLENCODED },
     });

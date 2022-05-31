@@ -1,5 +1,5 @@
 exports.getDrawerTemplate = function (name, upperCaseName, path) {
-    return `
+  return `
 <template>
     <BasicDrawer
         v-bind="$attrs"
@@ -13,10 +13,8 @@ exports.getDrawerTemplate = function (name, upperCaseName, path) {
         <BasicForm v-show="!skeletonLoading" @register="registerForm" />
     </BasicDrawer>
 </template>
-<script lang="ts" name="">
-</script>
-<script lang="ts" setup>
-import { defineEmits, ref, computed, unref } from 'vue';
+<script lang="ts" setup name="">
+import { ref, computed, unref } from 'vue';
 import { Skeleton } from 'ant-design-vue';
 import { BasicForm, useForm } from '/@/components/Form/index';
 import { formSchema } from './${name}.data';
